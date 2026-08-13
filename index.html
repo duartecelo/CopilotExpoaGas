@@ -183,8 +183,8 @@ button, input, select { font: inherit; color: inherit; }
 }
 
 .capa h1 {
-  font-size: clamp(38px, 6.6vw, 76px);
-  line-height: 1; margin: 26px 0 0; max-width: 15ch;
+  font-size: clamp(38px, 6.2vw, 72px);
+  line-height: 1; margin: 26px 0 0; max-width: 16ch;
   letter-spacing: -.022em; font-weight: 300;
   text-wrap: balance;
 }
@@ -192,21 +192,35 @@ button, input, select { font: inherit; color: inherit; }
 .capa h1 em {
   font-style: normal; font-weight: 600; color: var(--acento);
 }
+
+/* abertura de reportagem: título em medida estreita e, abaixo, uma faixa
+   de duas colunas com o texto de entrada à esquerda e o quadro de
+   referência à direita */
+.capa-baixo {
+  display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.06fr);
+  gap: 32px 52px; align-items: start; margin-top: 34px;
+}
+@media (max-width: 860px) { .capa-baixo { grid-template-columns: 1fr; } }
+
 .capa p.linha-fina {
   font-size: clamp(16px, 1.5vw, 19px);
-  color: var(--tinta-media); max-width: 54ch; margin: 24px 0 0;
+  color: var(--tinta-media); max-width: 46ch; margin: 0;
   line-height: 1.55;
 }
 
 /* painel de números: quadro de referência impresso, com filetes internos
    de 1px obtidos pelo vão da grade */
+/* duas colunas fixas: com auto-fit sobrava uma célula vazia sempre que a
+   largura da faixa comportava três */
 .numeros {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(152px, 1fr));
+  display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1px; background: var(--linha);
   border: 1px solid var(--linha-forte);
   border-top: 1.5px solid var(--tinta);
-  margin-top: 44px;
 }
+/* em tela estreita as duas colunas apertariam "R$ 800 mi" contra a borda
+   da célula, então o quadro vira uma coluna só */
+@media (max-width: 430px) { .numeros { grid-template-columns: 1fr; } }
 .numero { background: var(--papel); padding: 16px 18px 18px; }
 .numero b {
   display: block;
@@ -219,6 +233,17 @@ button, input, select { font: inherit; color: inherit; }
   color: var(--tinta-suave); margin-top: 11px;
   line-height: 1.5; letter-spacing: .11em; text-transform: uppercase;
 }
+
+/* abertura: uma única sequência escalonada no carregamento, em vez de
+   microanimações espalhadas pela página */
+@keyframes sobe { from { opacity: 0; transform: translateY(14px); } }
+.capa-selo, .capa h1, .capa .linha-fina, .capa .numeros {
+  animation: sobe .65s var(--ease) backwards;
+}
+.capa-selo        { animation-delay: .05s; }
+.capa h1          { animation-delay: .13s; }
+.capa .linha-fina { animation-delay: .26s; }
+.capa .numeros    { animation-delay: .36s; }
 
 /* ============================================================
    ETAPAS
@@ -648,13 +673,15 @@ svg.planta { display: block; width: 100%; height: auto; }
   <!-- primeira dobra -->
   <section class="envelope capa">
     <span class="capa-selo">43ª Convenção Gaúcha de Supermercados</span>
-    <h1>Você tem 72 horas e 610 expositores. Nós dizemos <em>quais 40 importam</em> para a sua loja.</h1>
-    <p class="linha-fina">E o que perguntar quando chegar lá. O Copiloto lê o mix da sua loja, aponta onde ela está descoberta e transforma a feira num roteiro com tese — não numa lista de estandes.</p>
-    <div class="numeros">
-      <div class="numero"><b>610</b><span>expositores confirmados em 2026</span></div>
-      <div class="numero"><b>72h</b><span>de feira, 18 a 20 de agosto</span></div>
-      <div class="numero"><b>R$ 800 mi</b><span>em negócios projetados</span></div>
-      <div class="numero"><b>~40</b><span>estandes que um comprador visita de fato</span></div>
+    <h1>São 72 horas e 610 expositores. <em>Quais 40 importam</em> para a sua loja?</h1>
+    <div class="capa-baixo">
+      <p class="linha-fina">O Copiloto lê o mix da sua loja, aponta onde ela está descoberta e devolve um roteiro de visita com ordem, justificativa e pauta de perguntas para cada fornecedor.</p>
+      <div class="numeros">
+        <div class="numero"><b>610</b><span>expositores confirmados em 2026</span></div>
+        <div class="numero"><b>72h</b><span>de feira, 18 a 20 de agosto</span></div>
+        <div class="numero"><b>R$ 800 mi</b><span>em negócios projetados</span></div>
+        <div class="numero"><b>~40</b><span>estandes que um comprador visita de fato</span></div>
+      </div>
     </div>
   </section>
 
