@@ -3,7 +3,9 @@
 Copiloto de compras para a **43ª Convenção Gaúcha de Supermercados — Expoagas 2026**
 (18 a 20 de agosto de 2026, Centro de Eventos da Fiergs, Porto Alegre).
 
-**Aplicação publicada:** _adicionar a URL do GitHub Pages após a publicação_
+**Aplicação publicada:** https://duartecelo.github.io/CopilotExpoaGas/
+
+**Repositório:** https://github.com/duartecelo/CopilotExpoaGas
 
 ---
 
@@ -60,7 +62,7 @@ IA Generativa · Analytics · Gestão por indicadores · Supply Chain · Retail 
 A aplicação é um arquivo único, sem backend e sem etapa de build.
 
 ```bash
-git clone https://github.com/<usuario>/CopilotExpoaGas.git
+git clone https://github.com/duartecelo/CopilotExpoaGas.git
 ```
 
 Depois é só abrir `index.html` em qualquer navegador moderno, ou acessar a URL do GitHub Pages.
