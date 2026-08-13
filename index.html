@@ -1,0 +1,1139 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Copiloto Expoagas — seu roteiro de compras na 43ª Convenção Gaúcha de Supermercados</title>
+<meta name="description" content="Diagnóstico de mix, roteiro de visita justificado e pauta de negociação para compradores na Expoagas 2026.">
+
+<style>
+/* ============================================================
+   TOKENS E BASE
+   ============================================================ */
+:root {
+  /* superfícies: quase preto esverdeado, subindo em camadas */
+  --papel:        #0a1512;
+  --papel-alto:   #10201b;
+  --papel-topo:   #162c25;
+  --linha:        #234137;
+
+  /* texto sobre fundo escuro */
+  --tinta:        #eef4f0;
+  --tinta-media:  #a8bdb4;
+  --tinta-suave:  #7b9389;
+
+  /* verde como secundária, agora luminoso o bastante para o fundo escuro */
+  --verde:        #2fbf85;
+  --verde-vivo:   #45d99c;
+  --verde-claro:  #163a2c;
+  --verde-tenue:  #0f2a20;
+
+  --milho:        #e8a33d;
+  --milho-claro:  #3a2c15;
+  --brasa:        #e2674a;
+  --brasa-clara:  #3a1d16;
+
+  --raio:     14px;
+  --raio-sm:  9px;
+  --sombra:   0 1px 2px rgba(0,0,0,.4), 0 8px 24px -12px rgba(0,0,0,.6);
+  --sombra-alta: 0 2px 6px rgba(0,0,0,.45), 0 18px 44px -16px rgba(0,0,0,.75);
+
+  --display: "Bitter", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --corpo: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+
+  --dur: .55s;
+  --ease: cubic-bezier(.22,.61,.36,1);
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; overflow-x: hidden; }
+
+body {
+  margin: 0;
+  background: var(--papel);
+  color: var(--tinta);
+  font-family: var(--corpo);
+  font-size: 16px;
+  line-height: 1.55;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, .display { font-family: var(--display); font-weight: 600; letter-spacing: -.015em; }
+
+button, input, select { font: inherit; color: inherit; }
+
+:focus-visible {
+  outline: 2.5px solid var(--verde-vivo);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.envelope { max-width: 1180px; margin: 0 auto; padding: 0 20px; }
+
+.pular {
+  position: absolute; left: -9999px;
+  background: var(--verde); color: #fff;
+  padding: 10px 16px; border-radius: 0 0 var(--raio-sm) 0; z-index: 100;
+}
+.pular:focus { left: 0; top: 0; }
+
+/* ============================================================
+   CABEÇALHO E PRIMEIRA DOBRA
+   ============================================================ */
+.topo {
+  border-bottom: 1px solid var(--linha);
+  background: rgba(10,21,18,.86);
+  backdrop-filter: blur(10px);
+  position: sticky; top: 0; z-index: 40;
+}
+.topo-linha {
+  display: flex; align-items: center; gap: 14px;
+  padding: 12px 0;
+}
+.marca { display: flex; align-items: center; gap: 10px; margin-right: auto; }
+.marca-glifo {
+  width: 34px; height: 34px; border-radius: 9px;
+  background: var(--verde); color: #06120e;
+  display: grid; place-items: center;
+  font-family: var(--display); font-size: 18px; font-weight: 700;
+  flex: none;
+}
+.marca-nome { font-family: var(--display); font-size: 17px; font-weight: 600; line-height: 1.1; }
+.marca-sub { font-size: 11.5px; color: var(--tinta-suave); letter-spacing: .04em; text-transform: uppercase; }
+
+.btn {
+  border: 1px solid var(--linha);
+  background: var(--papel-topo);
+  padding: 9px 15px; border-radius: 999px;
+  cursor: pointer; font-size: 14px; font-weight: 500;
+  transition: background .18s, border-color .18s, transform .18s;
+}
+.btn:hover { background: var(--verde-tenue); border-color: var(--verde); }
+.btn:active { transform: translateY(1px); }
+.btn-forte {
+  background: var(--verde); color: #06120e; border-color: var(--verde);
+}
+.btn-forte:hover { background: var(--verde-vivo); border-color: var(--verde-vivo); }
+
+.capa { padding: 52px 0 30px; position: relative; }
+/* halo sutil atrás da primeira dobra, ancorando o verde no escuro */
+.capa::before {
+  content: ""; position: absolute; inset: -40px 0 auto; height: 420px;
+  background: radial-gradient(60% 100% at 22% 0%, rgba(47,191,133,.13), transparent 70%);
+  pointer-events: none; z-index: -1;
+}
+.capa-selo {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: 12px; letter-spacing: .07em; text-transform: uppercase;
+  color: var(--verde-vivo); background: var(--verde-tenue);
+  border: 1px solid var(--verde-claro);
+  padding: 6px 13px; border-radius: 999px; font-weight: 600;
+}
+.capa h1 {
+  font-size: clamp(30px, 5.4vw, 52px);
+  line-height: 1.06; margin: 18px 0 0; max-width: 19ch;
+}
+.capa h1 em { font-style: normal; color: var(--verde-vivo); }
+.capa p.linha-fina {
+  font-size: clamp(16px, 2vw, 19px);
+  color: var(--tinta-media); max-width: 60ch; margin: 16px 0 0;
+}
+
+.numeros {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1px; background: var(--linha);
+  border: 1px solid var(--linha); border-radius: var(--raio);
+  overflow: hidden; margin-top: 30px;
+}
+.numero { background: var(--papel-alto); padding: 16px 18px; }
+.numero b {
+  display: block; font-family: var(--display);
+  font-size: clamp(24px, 3.4vw, 32px); line-height: 1; color: var(--verde-vivo);
+}
+.numero span { display: block; font-size: 12.5px; color: var(--tinta-suave); margin-top: 6px; }
+
+/* ============================================================
+   ETAPAS / PAINEL
+   ============================================================ */
+.secao { padding: 34px 0; }
+.secao-cabeca { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+.secao-cabeca h2 { font-size: clamp(21px, 2.7vw, 27px); margin: 0; }
+.passo {
+  font-size: 11.5px; font-weight: 700; letter-spacing: .08em;
+  color: var(--milho); text-transform: uppercase;
+  border: 1px solid var(--milho); border-radius: 999px; padding: 2px 9px;
+}
+.secao-nota { color: var(--tinta-media); margin: 0 0 20px; max-width: 66ch; }
+
+.cartao {
+  background: var(--papel-alto);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+}
+
+/* perfis prontos */
+.perfis { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; }
+.perfil {
+  text-align: left; cursor: pointer; padding: 16px 17px; color: inherit;
+  background: var(--papel-alto); border: 1px solid var(--linha);
+  border-radius: var(--raio); transition: border-color .18s, box-shadow .18s, transform .18s, background .18s;
+}
+.perfil:hover { border-color: var(--verde); transform: translateY(-2px); box-shadow: var(--sombra-alta); }
+.perfil[aria-pressed="true"] {
+  border-color: var(--verde); box-shadow: 0 0 0 1px var(--verde), var(--sombra);
+  background: linear-gradient(var(--verde-tenue), var(--papel-alto) 70%);
+}
+.perfil[aria-pressed="true"] h3 { color: var(--verde-vivo); }
+.perfil h3 { margin: 0 0 4px; font-size: 17px; }
+.perfil p { margin: 0; font-size: 13.5px; color: var(--tinta-media); }
+.perfil-meta { margin-top: 10px; font-size: 12px; color: var(--tinta-suave); }
+
+/* ajustes de categoria */
+.ajustes { margin-top: 22px; padding: 18px 19px; }
+.ajustes h3 { margin: 0 0 3px; font-size: 16px; }
+.ajustes > p { margin: 0 0 16px; font-size: 13.5px; color: var(--tinta-media); }
+.grade-cats { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 13px 20px; }
+.cat-linha { display: grid; grid-template-columns: 1fr auto; gap: 4px 10px; align-items: center; }
+.cat-nome { font-size: 14px; font-weight: 500; }
+.cat-valor { font-size: 12px; color: var(--tinta-suave); font-variant-numeric: tabular-nums; }
+.cat-linha input[type="range"] { grid-column: 1 / -1; width: 100%; accent-color: var(--verde-vivo); }
+
+/* ============================================================
+   DIAGNÓSTICO
+   ============================================================ */
+.lacunas { display: grid; gap: 10px; }
+.lacuna {
+  display: grid; grid-template-columns: auto 1fr auto; align-items: center;
+  gap: 14px; padding: 13px 16px;
+  border: 1px solid var(--linha); border-radius: var(--raio-sm);
+  background: var(--papel-alto);
+}
+.lacuna-sev {
+  width: 9px; height: 9px; border-radius: 50%; flex: none;
+}
+.sev-critica { background: var(--brasa); box-shadow: 0 0 0 4px var(--brasa-clara); }
+.sev-atencao { background: var(--milho); box-shadow: 0 0 0 4px var(--milho-claro); }
+.sev-ok      { background: var(--verde-vivo); box-shadow: 0 0 0 4px var(--verde-claro); }
+.lacuna-txt strong { display: block; font-size: 14.5px; }
+.lacuna-txt span { font-size: 13px; color: var(--tinta-media); }
+.lacuna-barra {
+  width: clamp(70px, 16vw, 130px); height: 7px; border-radius: 999px;
+  background: var(--linha); overflow: hidden;
+}
+.lacuna-barra i {
+  display: block; height: 100%; border-radius: 999px;
+  background: var(--verde-vivo);
+  transition: width var(--dur) var(--ease);
+}
+
+/* ============================================================
+   PLANTA — ELEMENTO ASSINATURA
+   ============================================================ */
+.palco {
+  display: grid; grid-template-columns: minmax(0, 1.62fr) minmax(280px, 1fr);
+  gap: 18px; align-items: start;
+}
+@media (max-width: 940px) { .palco { grid-template-columns: 1fr; } }
+
+.planta-caixa {
+  padding: 8px; overflow: hidden; position: relative;
+  background: linear-gradient(168deg, #17332a, #0d1f19 66%);
+  border-color: #2a5546;
+  box-shadow: var(--sombra-alta);
+}
+.planta-topo {
+  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
+  padding: 8px 10px 12px; color: #cfe3d8;
+}
+.planta-topo h3 { margin: 0; font-size: 15px; color: #f0f6f2; }
+.planta-legenda { display: flex; gap: 14px; flex-wrap: wrap; margin-left: auto; font-size: 11.5px; }
+.leg { display: inline-flex; align-items: center; gap: 6px; }
+.leg i { width: 9px; height: 9px; border-radius: 3px; display: inline-block; }
+
+svg.planta { display: block; width: 100%; height: auto; border-radius: 10px; }
+
+/* em telas estreitas a planta rola na horizontal dentro da própria caixa,
+   para os números das paradas continuarem legíveis */
+@media (max-width: 620px) {
+  .planta-rolagem { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+  .planta-rolagem svg.planta { min-width: 520px; }
+}
+
+.pav-fundo { fill: rgba(20,44,36,.55); stroke: #35705c; stroke-width: 1.2; }
+.pav-rotulo { fill: #8dc0ab; font-size: 9px; letter-spacing: .14em; text-transform: uppercase; font-weight: 600; }
+.corredor { stroke: #21503f; stroke-width: 7; stroke-linecap: round; }
+.setor-rotulo { fill: #6fa792; font-size: 7.4px; letter-spacing: .1em; text-transform: uppercase; }
+
+.estande { fill: #2b5648; stroke: #3d7361; stroke-width: .8; transition: fill .3s var(--ease), stroke .3s var(--ease); }
+.estande.no-roteiro { fill: var(--milho); stroke: #f6c67f; }
+.estande.ativo { fill: #fff; stroke: #fff; }
+
+.entrada { fill: var(--verde-claro); }
+.entrada-txt { fill: #bcd9c9; font-size: 7.5px; font-weight: 700; letter-spacing: .1em; }
+
+.rota-traco {
+  fill: none; stroke: var(--milho); stroke-width: 2.2;
+  stroke-linecap: round; stroke-linejoin: round;
+  stroke-dasharray: var(--comp); stroke-dashoffset: var(--comp);
+  animation: traca 1.15s var(--ease) forwards;
+  filter: drop-shadow(0 0 5px rgba(232,163,61,.4));
+}
+@keyframes traca { to { stroke-dashoffset: 0; } }
+
+.pino { cursor: pointer; }
+.pino-disco { fill: var(--milho); stroke: #0b1a15; stroke-width: 1.4; transition: transform .25s var(--ease); transform-box: fill-box; transform-origin: center; }
+.pino:hover .pino-disco, .pino:focus-visible .pino-disco { transform: scale(1.28); }
+.pino.ativo .pino-disco { fill: #fff; }
+.pino-num { fill: #10201c; font-size: 8.4px; font-weight: 700; text-anchor: middle; pointer-events: none; }
+.pino-entra { animation: surge .42s var(--ease) backwards; }
+@keyframes surge { from { opacity: 0; transform: scale(.3); } }
+
+/* ============================================================
+   LISTA DO ROTEIRO
+   ============================================================ */
+.roteiro-caixa { padding: 4px; max-height: 620px; overflow-y: auto; }
+.roteiro-topo { padding: 13px 14px 9px; display: flex; align-items: baseline; gap: 8px; }
+.roteiro-topo h3 { margin: 0; font-size: 15px; }
+.roteiro-topo span { font-size: 12.5px; color: var(--tinta-suave); margin-left: auto; }
+
+.parada {
+  width: 100%; text-align: left; cursor: pointer;
+  display: grid; grid-template-columns: auto 1fr; gap: 12px;
+  padding: 11px 13px; border: 1px solid transparent; border-radius: var(--raio-sm);
+  background: none; transition: background .16s, border-color .16s;
+  animation: entra .38s var(--ease) backwards;
+}
+@keyframes entra { from { opacity: 0; transform: translateX(-8px); } }
+.parada { color: inherit; }
+.parada:hover { background: var(--papel-topo); border-color: var(--linha); }
+.parada[aria-expanded="true"] { background: var(--verde-tenue); border-color: var(--verde); }
+.parada-num {
+  width: 25px; height: 25px; border-radius: 50%; flex: none;
+  background: var(--verde); color: #06120e;
+  display: grid; place-items: center; font-size: 12.5px; font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+.parada-nome { font-weight: 600; font-size: 14.5px; line-height: 1.25; }
+.parada-tags { font-size: 12px; color: var(--tinta-suave); margin-top: 3px; }
+.parada-pq { font-size: 12.5px; color: var(--verde-vivo); margin-top: 5px; font-weight: 500; }
+
+.pauta {
+  margin: 0 13px 12px; padding: 14px 15px;
+  background: var(--papel); border: 1px solid var(--linha);
+  border-radius: var(--raio-sm);
+  animation: abre .3s var(--ease);
+}
+@keyframes abre { from { opacity: 0; } }
+.pauta h4 {
+  margin: 0 0 9px; font-size: 11.5px; letter-spacing: .07em;
+  text-transform: uppercase; color: var(--tinta-suave); font-weight: 700;
+}
+.pauta ol { margin: 0; padding-left: 18px; }
+.pauta li { font-size: 13.5px; margin-bottom: 7px; line-height: 1.45; }
+.pauta li:last-child { margin-bottom: 0; }
+.pauta-ficha {
+  display: flex; gap: 14px; flex-wrap: wrap;
+  margin-top: 11px; padding-top: 10px; border-top: 1px dashed var(--linha);
+  font-size: 12px; color: var(--tinta-media);
+}
+
+.vazio { padding: 34px 20px; text-align: center; color: var(--tinta-media); }
+.vazio strong { display: block; font-family: var(--display); font-size: 17px; color: var(--tinta); margin-bottom: 5px; }
+
+/* ============================================================
+   TEMAS, EQUIPE, RODAPÉ
+   ============================================================ */
+.temas { display: flex; flex-wrap: wrap; gap: 8px; }
+.tema {
+  font-size: 13px; padding: 6px 13px; border-radius: 999px;
+  background: var(--verde-tenue); color: var(--verde-vivo);
+  border: 1px solid var(--verde-claro); font-weight: 500;
+}
+
+.rodape {
+  margin-top: 30px; border-top: 1px solid var(--linha);
+  background: var(--papel-alto); padding: 28px 0 36px;
+}
+.equipe { display: grid; grid-template-columns: repeat(auto-fit, minmax(215px, 1fr)); gap: 12px; margin-top: 14px; }
+.membro { padding: 12px 14px; border: 1px solid var(--linha); border-radius: var(--raio-sm); }
+.membro b { display: block; font-size: 14.5px; }
+.membro a { display: block; font-size: 13px; color: var(--verde-vivo); margin-top: 2px; word-break: break-all; }
+
+.rodape-fim {
+  margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--linha);
+  font-size: 12.5px; color: var(--tinta-suave);
+  display: flex; gap: 14px; flex-wrap: wrap; justify-content: space-between;
+}
+
+/* toast */
+.toast {
+  position: fixed; left: 50%; bottom: 26px; transform: translate(-50%, 14px);
+  background: var(--verde); color: #06120e; font-weight: 500;
+  padding: 11px 19px; border-radius: 999px; font-size: 14px;
+  box-shadow: var(--sombra-alta); opacity: 0; pointer-events: none;
+  transition: opacity .3s, transform .3s var(--ease); z-index: 90;
+}
+.toast.vis { opacity: 1; transform: translate(-50%, 0); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: .01ms !important;
+  }
+  .rota-traco { stroke-dashoffset: 0; }
+}
+</style>
+
+<a class="pular" href="#painel">Pular para o roteiro</a>
+
+<header class="topo">
+  <div class="envelope topo-linha">
+    <div class="marca">
+      <div class="marca-glifo" aria-hidden="true">C</div>
+      <div>
+        <div class="marca-nome">Copiloto Expoagas</div>
+        <div class="marca-sub">Expoagas 2026 · Fiergs</div>
+      </div>
+    </div>
+    <button class="btn" id="btn-reset">Resetar demo</button>
+  </div>
+</header>
+
+<main>
+  <!-- primeira dobra -->
+  <section class="envelope capa">
+    <span class="capa-selo">43ª Convenção Gaúcha de Supermercados</span>
+    <h1>Você tem 72 horas e 610 expositores. Nós dizemos <em>quais 40 importam</em> para a sua loja.</h1>
+    <p class="linha-fina">E o que perguntar quando chegar lá. O Copiloto lê o mix da sua loja, aponta onde ela está descoberta e transforma a feira num roteiro com tese — não numa lista de estandes.</p>
+    <div class="numeros">
+      <div class="numero"><b>610</b><span>expositores confirmados em 2026</span></div>
+      <div class="numero"><b>72h</b><span>de feira, 18 a 20 de agosto</span></div>
+      <div class="numero"><b>R$ 800 mi</b><span>em negócios projetados</span></div>
+      <div class="numero"><b>~40</b><span>estandes que um comprador visita de fato</span></div>
+    </div>
+  </section>
+
+  <div id="painel"></div>
+
+  <!-- etapa 1: perfil -->
+  <section class="envelope secao">
+    <div class="secao-cabeca">
+      <span class="passo">Etapa 1</span>
+      <h2>O perfil da sua loja</h2>
+    </div>
+    <p class="secao-nota">Escolha um perfil pronto para ver a demo andar, ou ajuste as categorias abaixo. Cada mudança redesenha o diagnóstico e o roteiro na hora.</p>
+    <div class="perfis" id="perfis" role="group" aria-label="Perfis de loja"></div>
+
+    <div class="cartao ajustes">
+      <h3>Ajuste fino do mix</h3>
+      <p>Quantos fornecedores ativos você tem hoje em cada categoria. Menos fornecedores em uma categoria relevante significa mais poder de barganha na mesa do fornecedor — e mais motivo para visitar.</p>
+      <div class="grade-cats" id="grade-cats"></div>
+    </div>
+  </section>
+
+  <!-- etapa 2: diagnóstico -->
+  <section class="envelope secao">
+    <div class="secao-cabeca">
+      <span class="passo">Etapa 2</span>
+      <h2>Onde a sua loja está descoberta</h2>
+    </div>
+    <p class="secao-nota" id="nota-diag">Comparamos o seu mix com a baseline de lojas do mesmo porte no Rio Grande do Sul. As categorias abaixo da linha são onde a feira pode te render mais.</p>
+    <div class="lacunas" id="lacunas"></div>
+  </section>
+
+  <!-- etapa 3: roteiro e planta -->
+  <section class="envelope secao">
+    <div class="secao-cabeca">
+      <span class="passo">Etapa 3</span>
+      <h2>O seu roteiro no pavilhão</h2>
+    </div>
+    <p class="secao-nota">Ordem otimizada pela posição física dos estandes, partindo da entrada. Clique em qualquer parada — na planta ou na lista — para ver a pauta de negociação daquele fornecedor.</p>
+    <div class="palco">
+      <div class="cartao planta-caixa">
+        <div class="planta-topo">
+          <h3>Centro de Eventos Fiergs</h3>
+          <div class="planta-legenda">
+            <span class="leg"><i style="background:#26493d"></i> Fora do roteiro</span>
+            <span class="leg"><i style="background:#e8a33d"></i> No roteiro</span>
+            <span class="leg"><i style="background:#fff"></i> Selecionado</span>
+          </div>
+        </div>
+        <div id="planta-alvo" class="planta-rolagem"></div>
+      </div>
+
+      <div class="cartao roteiro-caixa">
+        <div class="roteiro-topo">
+          <h3>Paradas</h3>
+          <span id="roteiro-contagem"></span>
+        </div>
+        <div id="roteiro"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- temas estratégicos -->
+  <section class="envelope secao">
+    <div class="secao-cabeca"><h2>Temas estratégicos atacados</h2></div>
+    <p class="secao-nota">O Copiloto cruza dado privado (o mix da loja) com dado do evento (expositores e planta) e devolve capacidade de agir. Isso o coloca em cima destes temas da Expoagas 2026:</p>
+    <div class="temas">
+      <span class="tema">IA Generativa</span>
+      <span class="tema">Analytics</span>
+      <span class="tema">Gestão por indicadores</span>
+      <span class="tema">Supply Chain</span>
+      <span class="tema">Retail Media</span>
+      <span class="tema">Omnichannel</span>
+    </div>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="envelope">
+    <h2 style="font-size:19px;margin:0">Equipe</h2>
+    <div class="equipe">
+      <div class="membro">
+        <b>Guilherme Perlasca</b>
+        <a href="mailto:guilhermeperlasca@gmail.com">guilhermeperlasca@gmail.com</a>
+      </div>
+      <div class="membro">
+        <b>Fillipe Brito Pinto</b>
+        <a href="mailto:britopintofillipe@gmail.com">britopintofillipe@gmail.com</a>
+      </div>
+      <div class="membro">
+        <b>Henrique Souza dos Santos</b>
+        <a href="mailto:hss_2003@outlook.com">hss_2003@outlook.com</a>
+      </div>
+      <div class="membro">
+        <b>Daniel Chiaramonte</b>
+        <a href="mailto:danieldeitoschiara@gmail.com">danieldeitoschiara@gmail.com</a>
+      </div>
+      <div class="membro">
+        <b>Marcelo Duarte de Aguiar</b>
+        <a href="mailto:celo.duarte.2005@gmail.com">celo.duarte.2005@gmail.com</a>
+      </div>
+    </div>
+    <div class="rodape-fim">
+      <span>Copiloto Expoagas · AppJam 2026 · 43ª Convenção Gaúcha de Supermercados</span>
+      <span>Protótipo de demonstração. Dados de expositores são simulados e plausíveis para o setor gaúcho.</span>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+"use strict";
+
+/* ============================================================
+   BLOCO 1 — DADOS
+   Taxonomia de setores conforme a organização da Expoagas 2026,
+   que reagrupou a feira por segmento de atuação.
+   ============================================================ */
+
+const CATEGORIAS = [
+  { id: "mercearia",   nome: "Mercearia",            cor: "#c8a23d" },
+  { id: "bebidas",     nome: "Bebidas",              cor: "#8d4a86" },
+  { id: "perecíveis",  nome: "Açougue e perecíveis", cor: "#b8503c" },
+  { id: "hortifruti",  nome: "Hortifrúti e FLV",     cor: "#4b8f3a" },
+  { id: "padaria",     nome: "Padaria e confeitaria",cor: "#c07a34" },
+  { id: "congelados",  nome: "Congelados",           cor: "#3a7fa0" },
+  { id: "limpeza",     nome: "Higiene e limpeza",    cor: "#4a76b8" },
+  { id: "bazar",       nome: "Bazar e utilidades",   cor: "#7a6bb0" },
+  { id: "equipamentos",nome: "Equipamentos",         cor: "#5f6b70" },
+  { id: "tecnologia",  nome: "Tecnologia e serviços",cor: "#2f8f7c" }
+];
+
+// coordenadas em viewBox 0..1000 x 0..640; pavilhão A é o principal,
+// pavilhão B é a área climatizada externa de 7 mil m² nova em 2026
+const SETORES = {
+  mercearia:    { pav: "A", x: 120, y: 120, w: 250, h: 130 },
+  bebidas:      { pav: "A", x: 400, y: 120, w: 205, h: 130 },
+  perecíveis:   { pav: "A", x: 635, y: 120, w: 235, h: 130 },
+  congelados:   { pav: "A", x: 120, y: 300, w: 205, h: 115 },
+  hortifruti:   { pav: "A", x: 355, y: 300, w: 205, h: 115 },
+  padaria:      { pav: "A", x: 590, y: 300, w: 280, h: 115 },
+  limpeza:      { pav: "B", x: 120, y: 485, w: 180, h: 95 },
+  bazar:        { pav: "B", x: 330, y: 485, w: 160, h: 95 },
+  equipamentos: { pav: "B", x: 520, y: 485, w: 160, h: 95 },
+  tecnologia:   { pav: "B", x: 710, y: 485, w: 175, h: 95 }
+};
+
+const ENTRADA = { x: 60, y: 420 };
+
+const REGIOES = ["Grande Porto Alegre", "Serra", "Vale do Sinos", "Sul", "Norte", "Missões", "Estado inteiro"];
+
+/* expositores plausíveis do mercado gaúcho — nomes fictícios porém
+   coerentes com a nomenclatura do setor no RS */
+const EXPOSITORES_BRUTO = [
+  ["Moinho Cruz Alta",                ["mercearia"],                "grande",  ["Estado inteiro"], 12, 2800],
+  ["Arroz Guaíba Selecionado",        ["mercearia"],                "grande",  ["Estado inteiro"], 10, 3500],
+  ["Massas Nona Túlia",               ["mercearia"],                "medio",   ["Serra", "Grande Porto Alegre"], 7, 900],
+  ["Conservas Vale Verde",            ["mercearia"],                "medio",   ["Vale do Sinos", "Grande Porto Alegre"], 9, 1100],
+  ["Erva-Mate Tradição Farroupilha",  ["mercearia"],                "medio",   ["Estado inteiro"], 8, 1400],
+  ["Açúcar e Café Pampa Sul",         ["mercearia"],                "grande",  ["Estado inteiro"], 11, 3200],
+  ["Biscoitos Colônia Nova",          ["mercearia", "padaria"],     "pequeno", ["Serra"], 6, 600],
+  ["Óleos Missioneiro",               ["mercearia"],                "medio",   ["Missões", "Norte"], 10, 1800],
+  ["Temperos Casa do Gaúcho",         ["mercearia"],                "pequeno", ["Grande Porto Alegre"], 5, 450],
+  ["Farinhas Santa Rosa",             ["mercearia", "padaria"],     "medio",   ["Missões", "Estado inteiro"], 9, 1600],
+
+  ["Cervejaria Cauda de Baleia",      ["bebidas"],                  "medio",   ["Grande Porto Alegre", "Serra"], 6, 1200],
+  ["Vinícola Encosta do Sol",         ["bebidas"],                  "medio",   ["Estado inteiro"], 12, 2400],
+  ["Sucos Integrais Pomar Gaúcho",    ["bebidas", "hortifruti"],    "pequeno", ["Serra", "Grande Porto Alegre"], 5, 700],
+  ["Refrigerantes Minuano",           ["bebidas"],                  "grande",  ["Estado inteiro"], 8, 4200],
+  ["Águas da Serra Gaúcha",           ["bebidas"],                  "medio",   ["Serra", "Vale do Sinos"], 4, 800],
+  ["Espumantes Casa Bertolli",        ["bebidas"],                  "medio",   ["Estado inteiro"], 14, 2600],
+  ["Distribuidora Bebidas Litoral",   ["bebidas"],                  "grande",  ["Sul", "Grande Porto Alegre"], 7, 3800],
+  ["Chimarrão & Cia Bebidas",         ["bebidas", "mercearia"],     "pequeno", ["Grande Porto Alegre"], 6, 550],
+
+  ["Frigorífico Campo Bom",           ["perecíveis"],               "grande",  ["Estado inteiro"], 5, 4500],
+  ["Laticínios Vale do Taquari",      ["perecíveis"],               "grande",  ["Estado inteiro"], 6, 3600],
+  ["Embutidos Colônia Alemã",         ["perecíveis"],               "medio",   ["Vale do Sinos", "Serra"], 7, 1300],
+  ["Queijos Serra Azul",              ["perecíveis"],               "pequeno", ["Serra"], 8, 700],
+  ["Aves Palmeira Real",              ["perecíveis", "congelados"], "grande",  ["Estado inteiro"], 4, 3900],
+  ["Suínos Nova Bassano",             ["perecíveis"],               "medio",   ["Serra", "Norte"], 6, 2100],
+  ["Ovos Granja Charrua",             ["perecíveis"],               "pequeno", ["Grande Porto Alegre"], 3, 400],
+  ["Frios Selecionados Pelotas",      ["perecíveis"],               "medio",   ["Sul"], 8, 1500],
+  ["Peixaria Lagoa dos Patos",        ["perecíveis", "congelados"], "pequeno", ["Sul", "Grande Porto Alegre"], 5, 900],
+
+  ["Hortifrúti Central Ceasa",        ["hortifruti"],               "grande",  ["Grande Porto Alegre"], 2, 1200],
+  ["Produtores Reunidos Caxias",      ["hortifruti"],               "medio",   ["Serra"], 3, 800],
+  ["Folhosas Hidropônicas Viamão",    ["hortifruti"],               "pequeno", ["Grande Porto Alegre"], 2, 350],
+  ["Cebola e Batata Vale do Rio",     ["hortifruti"],               "medio",   ["Sul", "Estado inteiro"], 4, 1000],
+  ["Frutas Nativas do Pampa",         ["hortifruti"],               "pequeno", ["Missões", "Norte"], 5, 600],
+  ["Orgânicos Colônia Consciente",    ["hortifruti"],               "pequeno", ["Grande Porto Alegre", "Serra"], 4, 500],
+  ["Flores e Plantas Primavera Sul",  ["hortifruti", "bazar"],      "pequeno", ["Grande Porto Alegre"], 6, 450],
+
+  ["Panificadora Industrial Trigal",  ["padaria"],                  "medio",   ["Estado inteiro"], 7, 1700],
+  ["Confeitaria Doce Gaúcha",         ["padaria"],                  "pequeno", ["Grande Porto Alegre"], 5, 600],
+  ["Fermentos e Melhoradores BR-116", ["padaria"],                  "medio",   ["Estado inteiro"], 9, 1400],
+  ["Cucas da Colônia",                ["padaria"],                  "pequeno", ["Vale do Sinos", "Serra"], 4, 380],
+  ["Recheios e Coberturas Bento",     ["padaria"],                  "medio",   ["Serra", "Estado inteiro"], 8, 1200],
+
+  ["Congelados Prontos Minuto Sul",   ["congelados"],               "medio",   ["Grande Porto Alegre", "Vale do Sinos"], 6, 1600],
+  ["Sorvetes Geada Serrana",          ["congelados"],               "medio",   ["Serra", "Grande Porto Alegre"], 5, 1100],
+  ["Legumes Congelados Safra Fria",   ["congelados", "hortifruti"], "medio",   ["Estado inteiro"], 9, 1900],
+  ["Pratos Prontos Cozinha Gaúcha",   ["congelados"],               "pequeno", ["Grande Porto Alegre"], 7, 850],
+  ["Pescados Congelados Atlântico Sul",["congelados", "perecíveis"],"medio",   ["Sul", "Estado inteiro"], 8, 2200],
+  ["Massas Congeladas Nonna Fria",    ["congelados", "mercearia"],  "pequeno", ["Serra"], 6, 700],
+
+  ["Higiene Pessoal Aurora Sul",      ["limpeza"],                  "grande",  ["Estado inteiro"], 12, 3400],
+  ["Química Doméstica Sinos",         ["limpeza"],                  "medio",   ["Vale do Sinos", "Grande Porto Alegre"], 8, 1500],
+  ["Descartáveis Rio Grande",         ["limpeza", "bazar"],         "medio",   ["Estado inteiro"], 10, 1800],
+  ["Papéis Tissue Guaíba",            ["limpeza"],                  "grande",  ["Estado inteiro"], 9, 3100],
+  ["Limpeza Profissional Pampa",      ["limpeza"],                  "pequeno", ["Grande Porto Alegre"], 7, 650],
+  ["Cosméticos Naturais Serra Viva",  ["limpeza"],                  "pequeno", ["Serra"], 9, 800],
+
+  ["Utilidades Domésticas Charrua",   ["bazar"],                    "medio",   ["Estado inteiro"], 14, 1400],
+  ["Bazar Importados Sul Trade",      ["bazar"],                    "medio",   ["Grande Porto Alegre"], 21, 2000],
+  ["Plásticos Novo Hamburgo",         ["bazar"],                    "medio",   ["Vale do Sinos", "Estado inteiro"], 11, 1300],
+  ["Pet Shop Distribuidora Amigo Fiel",["bazar"],                   "medio",   ["Estado inteiro"], 9, 1600],
+  ["Papelaria e Escolar Gramado",     ["bazar"],                    "pequeno", ["Serra"], 12, 700],
+
+  ["Refrigeração Comercial Frio Sul", ["equipamentos"],             "grande",  ["Estado inteiro"], 30, 12000],
+  ["Balanças e Automação Precisa",    ["equipamentos", "tecnologia"],"medio",  ["Estado inteiro"], 18, 4500],
+  ["Gôndolas Metalúrgica Canoas",     ["equipamentos"],             "medio",   ["Estado inteiro"], 25, 7000],
+  ["Câmaras Frias Ártico Gaúcho",     ["equipamentos"],             "medio",   ["Estado inteiro"], 35, 15000],
+  ["Carrinhos e Cestas Sul Metal",    ["equipamentos"],             "pequeno", ["Estado inteiro"], 20, 3000],
+
+  ["ERP Varejo Sistema Pampa",        ["tecnologia"],               "medio",   ["Estado inteiro"], 15, 2500],
+  ["Etiquetas Eletrônicas VarejoTag", ["tecnologia"],               "pequeno", ["Grande Porto Alegre"], 22, 5000],
+  ["Autoatendimento Caixa Rápido",    ["tecnologia"],               "medio",   ["Estado inteiro"], 28, 9000],
+  ["Retail Media Tela do Corredor",   ["tecnologia"],               "pequeno", ["Grande Porto Alegre"], 12, 1800],
+  ["Logística Fracionada EntregaJá",  ["tecnologia"],               "medio",   ["Estado inteiro"], 8, 1200],
+  ["Fidelização Clube do Bairro",     ["tecnologia"],               "pequeno", ["Estado inteiro"], 10, 900],
+  ["Prevenção de Perdas VigiaSul",    ["tecnologia"],               "pequeno", ["Grande Porto Alegre"], 14, 1100]
+];
+
+// distribui os estandes dentro do bloco do seu setor principal
+const EXPOSITORES = (() => {
+  const porSetor = {};
+  return EXPOSITORES_BRUTO.map((linha, i) => {
+    const [nome, categorias, porte, regiaoAtendida, prazoMedio, pedidoMinimo] = linha;
+    const setorId = categorias[0];
+    const bloco = SETORES[setorId];
+    const n = porSetor[setorId] = (porSetor[setorId] || 0);
+    porSetor[setorId]++;
+
+    const colunas = Math.max(2, Math.floor(bloco.w / 46));
+    const col = n % colunas;
+    const lin = Math.floor(n / colunas);
+    const passoX = bloco.w / colunas;
+    const passoY = 34;
+
+    return {
+      id: "e" + (i + 1),
+      nome, categorias, porte, regiaoAtendida, prazoMedio, pedidoMinimo,
+      pavilhao: bloco.pav,
+      setor: setorId,
+      standX: Math.round(bloco.x + col * passoX + passoX / 2),
+      standY: Math.round(bloco.y + 26 + lin * passoY),
+      stand: setorId.slice(0, 2).toUpperCase() + "-" + String(n + 1).padStart(2, "0")
+    };
+  });
+})();
+
+const PERFIS = [
+  {
+    id: "bairro",
+    nome: "Mercado de bairro",
+    resumo: "Uma loja, 4 caixas, clientela de vizinhança em Porto Alegre.",
+    porte: "pequeno",
+    regiao: "Grande Porto Alegre",
+    ticketMedio: 48,
+    lojas: 1,
+    mix: { mercearia: 6, bebidas: 5, "perecíveis": 3, hortifruti: 2, padaria: 2, congelados: 1, limpeza: 4, bazar: 2, equipamentos: 1, tecnologia: 0 }
+  },
+  {
+    id: "rede",
+    nome: "Rede regional",
+    resumo: "Seis lojas na Serra, marca consolidada, expansão em curso.",
+    porte: "medio",
+    regiao: "Serra",
+    ticketMedio: 96,
+    lojas: 6,
+    mix: { mercearia: 14, bebidas: 11, "perecíveis": 9, hortifruti: 7, padaria: 6, congelados: 4, limpeza: 9, bazar: 5, equipamentos: 3, tecnologia: 2 }
+  },
+  {
+    id: "atacarejo",
+    nome: "Atacarejo",
+    resumo: "Duas unidades de alto giro, volume e preço baixo, Vale do Sinos.",
+    porte: "grande",
+    regiao: "Vale do Sinos",
+    ticketMedio: 187,
+    lojas: 2,
+    mix: { mercearia: 22, bebidas: 18, "perecíveis": 12, hortifruti: 8, padaria: 5, congelados: 9, limpeza: 16, bazar: 11, equipamentos: 4, tecnologia: 3 }
+  }
+];
+
+// fornecedores esperados por categoria, por porte de operação
+const BASELINE = {
+  pequeno: { mercearia: 8, bebidas: 6, "perecíveis": 5, hortifruti: 4, padaria: 3, congelados: 3, limpeza: 5, bazar: 3, equipamentos: 1, tecnologia: 1 },
+  medio:   { mercearia: 16, bebidas: 12, "perecíveis": 10, hortifruti: 8, padaria: 6, congelados: 6, limpeza: 10, bazar: 6, equipamentos: 3, tecnologia: 3 },
+  grande:  { mercearia: 26, bebidas: 20, "perecíveis": 16, hortifruti: 12, padaria: 9, congelados: 10, limpeza: 17, bazar: 12, equipamentos: 5, tecnologia: 5 }
+};
+
+// peso de impacto no faturamento por categoria — usado para ordenar lacunas
+const PESO_IMPACTO = {
+  mercearia: 1.0, bebidas: .85, "perecíveis": .95, hortifruti: .8, padaria: .7,
+  congelados: .75, limpeza: .7, bazar: .5, equipamentos: .4, tecnologia: .45
+};
+
+const ORDEM_PORTE = { pequeno: 1, medio: 2, grande: 3 };
+
+/* ============================================================
+   BLOCO 2 — ALGORITMOS (determinísticos, sem IA)
+   ============================================================ */
+
+// diagnóstico: compara o mix informado com a baseline do porte
+function diagnosticar(perfil) {
+  const base = BASELINE[perfil.porte];
+  return CATEGORIAS.map(cat => {
+    const tem = perfil.mix[cat.id] ?? 0;
+    const esperado = base[cat.id];
+    const cobertura = Math.min(1, tem / esperado);
+    const impacto = (1 - cobertura) * (PESO_IMPACTO[cat.id] ?? .5);
+    let severidade = "ok";
+    if (cobertura < .45) severidade = "critica";
+    else if (cobertura < .8) severidade = "atencao";
+    return { ...cat, tem, esperado, cobertura, impacto, severidade };
+  }).sort((a, b) => b.impacto - a.impacto);
+}
+
+// matching: score do expositor contra as lacunas do perfil
+function pontuarExpositor(expositor, lacunas, perfil) {
+  let score = 0;
+  const motivos = [];
+
+  // sobreposição com lacunas pesa mais que tudo
+  let ganhoCategoria = 0;
+  let lacunaTopo = null;
+  expositor.categorias.forEach(cid => {
+    const lac = lacunas.find(l => l.id === cid);
+    if (!lac) return;
+    const ganho = lac.impacto * 100;
+    if (ganho > ganhoCategoria) { ganhoCategoria = ganho; lacunaTopo = lac; }
+  });
+  score += ganhoCategoria * 1.6;
+
+  // compatibilidade de região atendida
+  const atendeRegiao = expositor.regiaoAtendida.includes(perfil.regiao) ||
+                       expositor.regiaoAtendida.includes("Estado inteiro");
+  if (atendeRegiao) { score += 18; }
+  else { score -= 30; }
+
+  // compatibilidade de porte: fornecedor grande demais para loja pequena atrita
+  const distPorte = Math.abs(ORDEM_PORTE[expositor.porte] - ORDEM_PORTE[perfil.porte]);
+  score += distPorte === 0 ? 12 : distPorte === 1 ? 4 : -8;
+
+  // viabilidade do pedido mínimo contra a capacidade estimada de compra
+  const capacidade = perfil.ticketMedio * perfil.lojas * 22;
+  const folga = capacidade / expositor.pedidoMinimo;
+  if (folga >= 3) score += 10;
+  else if (folga >= 1.2) score += 4;
+  else score -= 22;
+
+  if (lacunaTopo) {
+    motivos.push(lacunaTopo.severidade === "critica"
+      ? `cobre a lacuna crítica de ${lacunaTopo.nome.toLowerCase()}`
+      : `reforça ${lacunaTopo.nome.toLowerCase()}, hoje abaixo da baseline`);
+  }
+  if (!atendeRegiao) motivos.push("não atende sua região");
+  if (folga < 1.2) motivos.push("pedido mínimo alto para o seu volume");
+  if (distPorte === 0) motivos.push("porte compatível com a sua operação");
+
+  return { score, motivos, lacunaTopo, atendeRegiao, folga };
+}
+
+function montarSelecao(perfil, limite) {
+  const lacunas = diagnosticar(perfil);
+  const relevantes = lacunas.filter(l => l.severidade !== "ok").map(l => l.id);
+
+  return EXPOSITORES
+    .map(e => ({ expositor: e, ...pontuarExpositor(e, lacunas, perfil) }))
+    // um estande só entra se toca uma categoria realmente descoberta
+    .filter(r => r.score > 25 && r.expositor.categorias.some(c => relevantes.includes(c)))
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limite);
+}
+
+// rota: vizinho mais próximo dentro de cada pavilhão, na ordem A depois B.
+// separar por pavilhão evita o vaivém entre os dois prédios que o vizinho
+// mais próximo puro produz — o comprador esgota um pavilhão antes de trocar
+function traçarRota(selecionados) {
+  const rota = [];
+  let atual = ENTRADA;
+
+  ["A", "B"].forEach(pav => {
+    const pendentes = selecionados.filter(s => s.expositor.pavilhao === pav);
+    while (pendentes.length) {
+      let melhorIdx = 0;
+      let melhorDist = Infinity;
+      pendentes.forEach((item, i) => {
+        const dx = item.expositor.standX - atual.x;
+        const dy = item.expositor.standY - atual.y;
+        const d = dx * dx + dy * dy;
+        if (d < melhorDist) { melhorDist = d; melhorIdx = i; }
+      });
+      const escolhido = pendentes.splice(melhorIdx, 1)[0];
+      rota.push(escolhido);
+      atual = { x: escolhido.expositor.standX, y: escolhido.expositor.standY };
+    }
+  });
+  return rota;
+}
+
+/* ============================================================
+   BLOCO 3 — PAUTA DE NEGOCIAÇÃO (templates por regra)
+   O texto é específico do par comprador x fornecedor. Se um dia
+   entrar chamada de IA, ela substitui só esta função.
+   ============================================================ */
+function gerarPauta(item, perfil) {
+  const e = item.expositor;
+  const lac = item.lacunaTopo;
+  const perguntas = [];
+
+  if (lac && lac.severidade === "critica") {
+    perguntas.push(`Você tem ${lac.tem} ${lac.tem === 1 ? "fornecedor" : "fornecedores"} em ${lac.nome.toLowerCase()} contra ${lac.esperado} esperados para o seu porte. Pergunte qual o prazo de primeira entrega e se há condição de entrada para quem está abrindo a categoria.`);
+  } else if (lac) {
+    perguntas.push(`${lac.nome} está abaixo da baseline. Pergunte que diferencial de mix esse fornecedor traz em relação aos ${lac.tem} que você já tem.`);
+  }
+
+  if (e.prazoMedio >= 15) {
+    perguntas.push(`O prazo médio de entrega é de ${e.prazoMedio} dias — alto para reposição. Pergunte se existe pedido programado ou estoque avançado na Grande Porto Alegre.`);
+  } else if (e.prazoMedio <= 5) {
+    perguntas.push(`Prazo de ${e.prazoMedio} dias é competitivo. Pergunte se ele se mantém em pedido fracionado e no pico de fim de mês.`);
+  }
+
+  const capacidade = perfil.ticketMedio * perfil.lojas * 22;
+  if (item.folga < 2) {
+    perguntas.push(`O pedido mínimo de R$ ${e.pedidoMinimo.toLocaleString("pt-BR")} pesa no seu volume. Pergunte se aceitam pedido misto entre categorias para fechar o mínimo.`);
+  } else {
+    perguntas.push(`Pedido mínimo de R$ ${e.pedidoMinimo.toLocaleString("pt-BR")} cabe no seu volume. Use isso: pergunte o desconto por escala acima de duas vezes o mínimo.`);
+  }
+
+  if (!e.regiaoAtendida.includes(perfil.regiao)) {
+    perguntas.push(`A cobertura declarada não inclui ${perfil.regiao}. Confirme se há distribuidor parceiro ou frete próprio para a sua praça antes de negociar preço.`);
+  } else {
+    perguntas.push(`Atende ${perfil.regiao}. Pergunte a frequência de visita do representante e quem responde por ruptura fora da rota.`);
+  }
+
+  if (e.categorias.includes("tecnologia") || e.categorias.includes("equipamentos")) {
+    perguntas.push(`Peça o prazo de instalação e o custo de manutenção anual — em equipamento, o preço da etiqueta esconde o custo do ciclo.`);
+  }
+
+  return perguntas;
+}
+
+/* ============================================================
+   BLOCO 4 — ESTADO E RENDER
+   ============================================================ */
+const estado = {
+  perfil: null,
+  perfilBase: null,
+  rota: [],
+  lacunas: [],
+  ativo: null,
+  limite: 12
+};
+
+const $ = sel => document.querySelector(sel);
+
+function clonarPerfil(p) { return JSON.parse(JSON.stringify(p)); }
+
+function renderPerfis() {
+  $("#perfis").innerHTML = PERFIS.map(p => `
+    <button class="perfil" type="button" data-perfil="${p.id}"
+            aria-pressed="${estado.perfilBase === p.id}">
+      <h3>${p.nome}</h3>
+      <p>${p.resumo}</p>
+      <div class="perfil-meta">${p.lojas} ${p.lojas === 1 ? "loja" : "lojas"} · ticket médio R$ ${p.ticketMedio} · ${p.regiao}</div>
+    </button>`).join("");
+}
+
+function renderControles() {
+  $("#grade-cats").innerHTML = CATEGORIAS.map(c => {
+    const v = estado.perfil.mix[c.id] ?? 0;
+    const max = BASELINE.grande[c.id] + 4;
+    return `
+      <div class="cat-linha">
+        <label class="cat-nome" for="sl-${c.id}">${c.nome}</label>
+        <span class="cat-valor" id="vl-${c.id}">${v} forn.</span>
+        <input type="range" id="sl-${c.id}" data-cat="${c.id}"
+               min="0" max="${max}" value="${v}"
+               aria-label="Fornecedores em ${c.nome}">
+      </div>`;
+  }).join("");
+}
+
+function renderDiagnostico() {
+  const criticas = estado.lacunas.filter(l => l.severidade === "critica").length;
+  const atencao = estado.lacunas.filter(l => l.severidade === "atencao").length;
+
+  $("#nota-diag").textContent = criticas || atencao
+    ? `Comparado à baseline de lojas ${rotuloPorte(estado.perfil.porte)} no Rio Grande do Sul: ${criticas} ${criticas === 1 ? "categoria crítica" : "categorias críticas"} e ${atencao} em atenção. É aqui que a feira pode te render mais.`
+    : "Seu mix está acima da baseline em todas as categorias. O roteiro abaixo prioriza consolidação e troca de fornecedor, não abertura de categoria.";
+
+  $("#lacunas").innerHTML = estado.lacunas.map(l => `
+    <div class="lacuna">
+      <span class="lacuna-sev sev-${l.severidade}" aria-hidden="true"></span>
+      <div class="lacuna-txt">
+        <strong>${l.nome}</strong>
+        <span>${l.tem} de ${l.esperado} fornecedores esperados · ${textoSeveridade(l)}</span>
+      </div>
+      <div class="lacuna-barra" role="img" aria-label="${Math.round(l.cobertura * 100)}% da baseline">
+        <i style="width:${Math.round(l.cobertura * 100)}%;background:${l.severidade === "critica" ? "var(--brasa)" : l.severidade === "atencao" ? "var(--milho)" : "var(--verde-vivo)"}"></i>
+      </div>
+    </div>`).join("");
+}
+
+function rotuloPorte(p) { return p === "pequeno" ? "de bairro" : p === "medio" ? "de porte médio" : "de grande porte"; }
+
+function textoSeveridade(l) {
+  if (l.severidade === "critica") return "lacuna crítica, prioridade de feira";
+  if (l.severidade === "atencao") return "abaixo da baseline";
+  return "categoria bem coberta";
+}
+
+// planta em SVG — elemento assinatura
+function renderPlanta() {
+  const idsRota = estado.rota.map(r => r.expositor.id);
+
+  const pavilhoes = [
+    { id: "A", x: 90, y: 78, w: 810, h: 360, rotulo: "Pavilhão A · feira principal" },
+    { id: "B", x: 90, y: 458, w: 810, h: 145, rotulo: "Pavilhão B · área climatizada 7.000 m²" }
+  ];
+
+  const svgPav = pavilhoes.map(p => `
+    <rect class="pav-fundo" x="${p.x}" y="${p.y}" width="${p.w}" height="${p.h}" rx="10"/>
+    <text class="pav-rotulo" x="${p.x + 12}" y="${p.y + 20}">${p.rotulo}</text>`).join("");
+
+  const svgSetores = Object.entries(SETORES).map(([id, s]) => {
+    const cat = CATEGORIAS.find(c => c.id === id);
+    return `<text class="setor-rotulo" x="${s.x}" y="${s.y + 14}">${cat.nome}</text>`;
+  }).join("");
+
+  const svgCorredores = `
+    <line class="corredor" x1="105" y1="272" x2="885" y2="272"/>
+    <line class="corredor" x1="105" y1="452" x2="885" y2="452"/>`;
+
+  const svgEstandes = EXPOSITORES.map(e => {
+    const noRoteiro = idsRota.includes(e.id);
+    const ativo = estado.ativo === e.id;
+    return `<rect class="estande${noRoteiro ? " no-roteiro" : ""}${ativo ? " ativo" : ""}"
+      x="${e.standX - 11}" y="${e.standY - 8}" width="22" height="16" rx="3">
+      <title>${e.nome} — estande ${e.stand}</title></rect>`;
+  }).join("");
+
+  const pontos = [ENTRADA, ...estado.rota.map(r => ({ x: r.expositor.standX, y: r.expositor.standY }))];
+  const d = pontos.map((p, i) => (i ? "L" : "M") + p.x + " " + p.y).join(" ");
+  const comprimento = pontos.reduce((acc, p, i) =>
+    i ? acc + Math.hypot(p.x - pontos[i - 1].x, p.y - pontos[i - 1].y) : 0, 0);
+
+  const svgPinos = estado.rota.map((r, i) => `
+    <g class="pino pino-entra${estado.ativo === r.expositor.id ? " ativo" : ""}"
+       style="animation-delay:${i * 55}ms"
+       data-id="${r.expositor.id}" tabindex="0" role="button"
+       aria-label="Parada ${i + 1}: ${r.expositor.nome}">
+      <circle class="pino-disco" cx="${r.expositor.standX}" cy="${r.expositor.standY}" r="10"/>
+      <text class="pino-num" x="${r.expositor.standX}" y="${r.expositor.standY + 3.2}">${i + 1}</text>
+    </g>`).join("");
+
+  $("#planta-alvo").innerHTML = `
+    <svg class="planta" viewBox="0 0 1000 640" role="img"
+         aria-label="Planta do pavilhão com ${estado.rota.length} paradas do roteiro">
+      ${svgPav}${svgCorredores}${svgSetores}${svgEstandes}
+      <circle class="entrada" cx="${ENTRADA.x}" cy="${ENTRADA.y}" r="9"/>
+      <text class="entrada-txt" x="${ENTRADA.x - 22}" y="${ENTRADA.y + 24}">ENTRADA</text>
+      ${estado.rota.length ? `<path class="rota-traco" d="${d}" style="--comp:${Math.round(comprimento)}"/>` : ""}
+      ${svgPinos}
+    </svg>`;
+}
+
+function renderRoteiro() {
+  const alvo = $("#roteiro");
+  $("#roteiro-contagem").textContent = estado.rota.length
+    ? `${estado.rota.length} de ${EXPOSITORES.length} expositores`
+    : "";
+
+  if (!estado.rota.length) {
+    alvo.innerHTML = `<div class="vazio">
+      <strong>Nenhuma lacuna encontrada</strong>
+      Baixe o número de fornecedores em alguma categoria para o Copiloto montar um roteiro.
+    </div>`;
+    return;
+  }
+
+  alvo.innerHTML = estado.rota.map((r, i) => {
+    const e = r.expositor;
+    const aberto = estado.ativo === e.id;
+    const cats = e.categorias.map(c => CATEGORIAS.find(x => x.id === c).nome).join(" · ");
+    return `
+      <button class="parada" type="button" data-id="${e.id}"
+              aria-expanded="${aberto}" style="animation-delay:${i * 40}ms">
+        <span class="parada-num">${i + 1}</span>
+        <span>
+          <span class="parada-nome">${e.nome}</span>
+          <span class="parada-tags">${cats} · estande ${e.stand} · pavilhão ${e.pavilhao}</span>
+          ${r.motivos.length ? `<span class="parada-pq">${r.motivos[0]}</span>` : ""}
+        </span>
+      </button>
+      ${aberto ? renderPauta(r) : ""}`;
+  }).join("");
+}
+
+function renderPauta(r) {
+  const e = r.expositor;
+  const perguntas = gerarPauta(r, estado.perfil);
+  return `
+    <div class="pauta">
+      <h4>Pauta de negociação — ${e.nome}</h4>
+      <ol>${perguntas.map(p => `<li>${p}</li>`).join("")}</ol>
+      <div class="pauta-ficha">
+        <span><b>Prazo médio:</b> ${e.prazoMedio} dias</span>
+        <span><b>Pedido mínimo:</b> R$ ${e.pedidoMinimo.toLocaleString("pt-BR")}</span>
+        <span><b>Atende:</b> ${e.regiaoAtendida.join(", ")}</span>
+      </div>
+    </div>`;
+}
+
+// recalcula tudo e redesenha — é este caminho que produz o momento da demo
+function recalcular(opcoes = {}) {
+  estado.lacunas = diagnosticar(estado.perfil);
+  const selecao = montarSelecao(estado.perfil, estado.limite);
+  estado.rota = traçarRota(selecao);
+
+  if (estado.ativo && !estado.rota.some(r => r.expositor.id === estado.ativo)) {
+    estado.ativo = null;
+  }
+
+  renderDiagnostico();
+  renderPlanta();
+  renderRoteiro();
+
+  if (opcoes.aviso) toast(opcoes.aviso);
+}
+
+let timerToast;
+function toast(msg) {
+  const t = $("#toast");
+  t.textContent = msg;
+  t.classList.add("vis");
+  clearTimeout(timerToast);
+  timerToast = setTimeout(() => t.classList.remove("vis"), 2600);
+}
+
+function aplicarPerfil(id, aviso) {
+  const base = PERFIS.find(p => p.id === id);
+  estado.perfil = clonarPerfil(base);
+  estado.perfilBase = id;
+  estado.ativo = null;
+  renderPerfis();
+  renderControles();
+  recalcular({ aviso });
+}
+
+function selecionar(id) {
+  estado.ativo = estado.ativo === id ? null : id;
+  renderPlanta();
+  renderRoteiro();
+  if (estado.ativo) {
+    const alvo = document.querySelector(`.parada[data-id="${id}"]`);
+    if (alvo) alvo.scrollIntoView({ block: "nearest", behavior: "smooth" });
+  }
+}
+
+/* ============================================================
+   BLOCO 5 — EVENTOS
+   ============================================================ */
+$("#perfis").addEventListener("click", ev => {
+  const btn = ev.target.closest("[data-perfil]");
+  if (!btn) return;
+  const p = PERFIS.find(x => x.id === btn.dataset.perfil);
+  aplicarPerfil(btn.dataset.perfil, `Perfil aplicado: ${p.nome}`);
+});
+
+// slider de categoria: redesenha diagnóstico, planta e rota juntos
+$("#grade-cats").addEventListener("input", ev => {
+  const sl = ev.target.closest("input[type=range]");
+  if (!sl) return;
+  const cat = sl.dataset.cat;
+  const valor = Number(sl.value);
+  estado.perfil.mix[cat] = valor;
+  document.getElementById("vl-" + cat).textContent = valor + " forn.";
+  estado.perfilBase = null;
+  document.querySelectorAll(".perfil").forEach(b => b.setAttribute("aria-pressed", "false"));
+  recalcular();
+});
+
+$("#grade-cats").addEventListener("change", ev => {
+  const sl = ev.target.closest("input[type=range]");
+  if (!sl) return;
+  const cat = CATEGORIAS.find(c => c.id === sl.dataset.cat);
+  toast(`Roteiro atualizado a partir de ${cat.nome.toLowerCase()}`);
+});
+
+$("#roteiro").addEventListener("click", ev => {
+  const btn = ev.target.closest(".parada");
+  if (btn) selecionar(btn.dataset.id);
+});
+
+$("#planta-alvo").addEventListener("click", ev => {
+  const g = ev.target.closest(".pino");
+  if (g) selecionar(g.dataset.id);
+});
+
+$("#planta-alvo").addEventListener("keydown", ev => {
+  if (ev.key !== "Enter" && ev.key !== " ") return;
+  const g = ev.target.closest(".pino");
+  if (!g) return;
+  ev.preventDefault();
+  selecionar(g.dataset.id);
+});
+
+$("#btn-reset").addEventListener("click", () => {
+  aplicarPerfil("bairro", "Demo resetada");
+  window.scrollTo({ top: 0, behavior: "smooth" });
+});
+
+// arranque
+aplicarPerfil("bairro");
+</script>
