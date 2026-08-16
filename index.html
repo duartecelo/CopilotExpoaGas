@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Copiloto Expoagas — seu roteiro de compras na 43ª Convenção Gaúcha de Supermercados</title>
 <meta name="description" content="Diagnóstico de mix, roteiro de visita justificado e pauta de negociação para compradores na Expoagas 2026.">
-<meta name="theme-color" content="#f2eee5">
+<meta name="theme-color" content="#e9ecec">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,28 +19,31 @@
    de hierarquia tipográfica, não de sombra colorida.
    ============================================================ */
 :root {
-  /* papel: quatro camadas quentes, da mais recuada à mais alta */
-  --papel:       #f2eee5;
-  --papel-baixo: #e7e0d0;
-  --papel-nota:  #ece5d6;
-  --papel-alto:  #fbf9f4;
+  /* papel: quatro camadas de cinza frio, da mais recuada à mais alta.
+     é o tom do papel de projeto, não o do papel de carta */
+  --papel:       #e9ecec;
+  --papel-baixo: #d9dfdf;
+  --papel-nota:  #e0e5e5;
+  --papel-alto:  #f6f8f8;
 
-  --linha:       #d9d1be;
-  --linha-forte: #b4a88e;
+  --linha:       #c8cfcf;
+  --linha-forte: #9ea9a9;
 
-  --tinta:       #1a1814;
-  --tinta-media: #4e4840;
-  --tinta-suave: #6f6759;
+  --tinta:       #14181a;
+  --tinta-media: #414a4c;
+  --tinta-suave: #5c6668;
 
-  /* acento único: terracota queimada, cor de tijolo e de galpão de feira.
-     5.8:1 sobre o papel, portanto vale também como cor de texto */
-  --acento:       #9e3b1f;
-  --acento-forte: #7d2c14;
-  --acento-tenue: #f4e3db;
+  /* acento único: azul-petróleo profundo, o azul de prancheta técnica.
+     7.1:1 sobre o papel, portanto vale também como cor de texto */
+  --acento:       #0e5560;
+  --acento-forte: #093f48;
+  --acento-tenue: #d6e5e7;
 
-  /* semânticos do diagnóstico: ocre para atenção, pinho para coberto */
-  --ocre:        #8a5d0c;
-  --pinho:       #2f4c3c;
+  /* semânticos do diagnóstico: bordô para crítico, ocre para atenção,
+     pinho para categoria já coberta */
+  --critico:     #8f1f31;
+  --ocre:        #7d6114;
+  --pinho:       #3c5a45;
 
   --raio:    3px;
   --raio-sm: 2px;
@@ -68,10 +71,10 @@ body {
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  /* duas manchas quentes muito diluídas: papel impresso não é chapado */
+  /* duas manchas muito diluídas: papel impresso não é chapado */
   background-image:
-    radial-gradient(72% 46% at 6% -6%, rgba(158,59,31,.055), transparent 62%),
-    radial-gradient(58% 40% at 100% 1%, rgba(47,76,60,.05), transparent 58%);
+    radial-gradient(72% 46% at 6% -6%, rgba(14,85,96,.07), transparent 62%),
+    radial-gradient(58% 40% at 100% 1%, rgba(60,90,69,.055), transparent 58%);
   background-attachment: fixed;
 }
 
@@ -338,12 +341,12 @@ button, input, select { font: inherit; color: inherit; }
 .lacuna::before {
   content: ""; position: absolute; left: -1px; top: -1px; bottom: -1px; width: 3px;
 }
-.lacuna.is-critica::before { background: var(--acento); }
+.lacuna.is-critica::before { background: var(--critico); }
 .lacuna.is-atencao::before { background: var(--ocre); }
 .lacuna.is-ok::before      { background: var(--linha-forte); }
 
 .lacuna-sev { width: 7px; height: 7px; border-radius: 1px; flex: none; }
-.sev-critica { background: var(--acento); }
+.sev-critica { background: var(--critico); }
 .sev-atencao { background: var(--ocre); }
 .sev-ok      { background: var(--pinho); }
 
@@ -366,7 +369,7 @@ button, input, select { font: inherit; color: inherit; }
   transform: scaleX(var(--cob, 0)); transform-origin: left center;
   transition: transform var(--dur) var(--ease), background .3s var(--ease);
 }
-.lacuna.is-critica .lacuna-barra i { background: var(--acento); }
+.lacuna.is-critica .lacuna-barra i { background: var(--critico); }
 .lacuna.is-atencao .lacuna-barra i { background: var(--ocre); }
 .lacuna.is-ok      .lacuna-barra i { background: var(--pinho); }
 
