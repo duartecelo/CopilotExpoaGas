@@ -710,7 +710,7 @@ svg.planta { display: block; width: 100%; height: auto; }
 
     <div class="cartao ajustes">
       <h3>Ajuste fino do mix</h3>
-      <p>Quantos fornecedores ativos você tem hoje em cada categoria. Menos fornecedores em uma categoria relevante significa mais poder de barganha na mesa do fornecedor — e mais motivo para visitar.</p>
+      <p>Quantos fornecedores ativos você tem hoje em cada categoria. Menos fornecedores numa categoria relevante significa mais poder de barganha na mesa do fornecedor, e mais motivo para visitar aquele estande.</p>
       <div class="grade-cats" id="grade-cats"></div>
     </div>
   </section>
@@ -731,7 +731,7 @@ svg.planta { display: block; width: 100%; height: auto; }
       <span class="passo">Etapa 3</span>
       <h2>O seu roteiro no pavilhão</h2>
     </div>
-    <p class="secao-nota">Ordem otimizada pela posição física dos estandes, partindo da entrada. Clique em qualquer parada — na planta ou na lista — para ver a pauta de negociação daquele fornecedor.</p>
+    <p class="secao-nota">Ordem otimizada pela posição física dos estandes, partindo da entrada. Clique em qualquer parada, na planta ou na lista, para ver a pauta de negociação daquele fornecedor.</p>
     <div class="palco">
       <div class="cartao planta-caixa">
         <div class="planta-topo">
@@ -739,7 +739,7 @@ svg.planta { display: block; width: 100%; height: auto; }
           <div class="planta-legenda">
             <span class="leg leg-fora"><i></i> Fora</span>
             <span class="leg leg-rota"><i></i> No roteiro</span>
-            <span class="leg leg-ativo"><i></i> Aberto</span>
+            <span class="leg leg-ativo"><i></i> Selecionado</span>
           </div>
         </div>
         <div id="planta-alvo" class="planta-rolagem"></div>
@@ -758,7 +758,7 @@ svg.planta { display: block; width: 100%; height: auto; }
   <!-- temas estratégicos -->
   <section class="envelope secao">
     <div class="secao-cabeca"><h2>Temas estratégicos atacados</h2></div>
-    <p class="secao-nota">O Copiloto cruza dado privado (o mix da loja) com dado do evento (expositores e planta) e devolve capacidade de agir. Isso o coloca em cima destes temas da Expoagas 2026:</p>
+    <p class="secao-nota">O Copiloto cruza dado privado (o mix da loja) com dado do evento (expositores e planta) e devolve uma decisão de visita pronta para executar. Isso o posiciona sobre estes temas da Expoagas 2026:</p>
     <div class="temas">
       <span class="tema">IA Generativa</span>
       <span class="tema">Analytics</span>
@@ -1122,7 +1122,7 @@ function gerarPauta(item, perfil) {
   }
 
   if (e.prazoMedio >= 15) {
-    perguntas.push(`O prazo médio de entrega é de ${e.prazoMedio} dias — alto para reposição. Pergunte se existe pedido programado ou estoque avançado na Grande Porto Alegre.`);
+    perguntas.push(`O prazo médio de entrega é de ${e.prazoMedio} dias, alto para reposição. Pergunte se existe pedido programado ou estoque avançado na Grande Porto Alegre.`);
   } else if (e.prazoMedio <= 5) {
     perguntas.push(`Prazo de ${e.prazoMedio} dias é competitivo. Pergunte se ele se mantém em pedido fracionado e no pico de fim de mês.`);
   }
@@ -1141,7 +1141,7 @@ function gerarPauta(item, perfil) {
   }
 
   if (e.categorias.includes("tecnologia") || e.categorias.includes("equipamentos")) {
-    perguntas.push(`Peça o prazo de instalação e o custo de manutenção anual — em equipamento, o preço da etiqueta esconde o custo do ciclo.`);
+    perguntas.push(`Peça o prazo de instalação e o custo de manutenção anual. Em equipamento, o preço da etiqueta esconde o custo do ciclo.`);
   }
 
   return perguntas;
@@ -1247,7 +1247,7 @@ function renderPlanta() {
     const ativo = estado.ativo === e.id;
     return `<rect class="estande${noRoteiro ? " no-roteiro" : ""}${ativo ? " ativo" : ""}"
       x="${e.standX - 11}" y="${e.standY - 8}" width="22" height="16" rx="3">
-      <title>${e.nome} — estande ${e.stand}</title></rect>`;
+      <title>${e.nome} · estande ${e.stand}</title></rect>`;
   }).join("");
 
   const pontos = [ENTRADA, ...estado.rota.map(r => ({ x: r.expositor.standX, y: r.expositor.standY }))];
@@ -1315,7 +1315,7 @@ function renderPauta(r) {
   const perguntas = gerarPauta(r, estado.perfil);
   return `
     <div class="pauta">
-      <h4>Pauta de negociação — ${e.nome}</h4>
+      <h4>Pauta de negociação · ${e.nome}</h4>
       <ol>${perguntas.map(p => `<li>${p}</li>`).join("")}</ol>
       <div class="pauta-ficha">
         <span><b>Prazo médio:</b> ${e.prazoMedio} dias</span>
